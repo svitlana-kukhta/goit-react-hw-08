@@ -1,0 +1,11 @@
+.searchBoxContainer {display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 5px;}
+
+.searchBoxInput {width: 320px;
+        display: flex;
+        border-radius: 8px;
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 10px 20px;}
