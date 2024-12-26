@@ -1,14 +1,14 @@
 import ContactForm from "../components/ContactForm/ContactForm";
 import SearchBox from "../components/SearchBox/SearchBox";
 import ContactList from "../components/ContactList/ContactList";
-import { selectVisibleContacts, selectIsLoading, selectError } from "../redux/contacts/selectors";
+import { selectFilteredContacts, selectIsLoading, selectError } from "../redux/contacts/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from "react";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
-  const visibleContacts = useSelector(selectVisibleContacts);
+  const visibleContacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 

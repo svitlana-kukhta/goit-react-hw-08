@@ -30,6 +30,18 @@ export const register = createAsyncThunk(
     }
   }
 );
+export const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    try {
+      // Логіка для виходу (наприклад, очищення токена на сервері)
+      await axios.post("/api/logout"); // Заміна на ваш API запит
+      return; // Повідомляємо, що виконання успішне
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 
 /*
  * POST @ /users/login
@@ -56,7 +68,6 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
-    // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
